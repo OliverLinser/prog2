@@ -128,12 +128,14 @@ def sphere_volume_parallel(n, d, np=10):
     return sum(results)/np
     
 def main():
+    print('EXC1')
     # Exc1
     dots = [1000, 10000, 100000]
     for n in dots:
         print(approximate_pi(n))
 
     # Exc2
+    print('EXC2')
     n = 100000
     d = 2
     print(sphere_volume(n, d))
@@ -145,6 +147,7 @@ def main():
     print(f"Actual volume of {d} dimentional sphere = {hypersphere_exact(n,d)}")
 
     # Exc3
+    print('EXC3')
     run = 1
     n = 1000000
     d = 11
@@ -183,6 +186,7 @@ def main():
     stop = pc()
     print(f"Exc3: Sequential time of {d} and {n}: {stop-start} for run number {run}")
 
+    print('EXC4')
     # Exc4
     n = 1000000
     d = 11
