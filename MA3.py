@@ -18,7 +18,27 @@ from functools import reduce
 from numba import njit
 import multiprocessing as mp
 import concurrent.futures as future
-print("testing changes")
+
+""" Instructions Linux server/git
+To enter Linux server: ssh olli9516@gullviva.it.uu.se
+Enter Studium A, password
+Enter correct map: cd prog2
+If no updates simply run ./MA3.py
+
+If changes have been made: in the powershell in visual studio enter:
+git add .
+git commit -m "Uppdaterat koden"
+git push
+
+In the powershell with Linux server type:
+git checkout -- MA3.py
+git pull
+chmod 755 MA3.py
+./MA3.py
+
+If sometthing does not work enter:
+sed -i -e 's/\r$//' MA3.py in the SSH window
+"""
 
 # Exc1
 def approximate_pi(n):
@@ -35,7 +55,7 @@ def approximate_pi(n):
     y = 0
 
     n_c = 0
-    for i in range(n):
+    for _ in range(n):
         x = random.uniform(-1, 1)
         y = random.uniform(-1, 1)
         if x**2 + y**2 <= 1:
@@ -48,6 +68,7 @@ def approximate_pi(n):
     plt.scatter(x_coordinates_in, y_coordinates_in, color="red", s = 10)
     plt.scatter(x_coordinates_out, y_coordinates_out, color="blue", s = 10)
     plt.axis("equal")
+    plt.savefig(f"pi_approximation_{n}.png")
     plt.show()
     print(n_c)
     return 4*n_c/n
